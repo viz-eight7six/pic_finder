@@ -1,24 +1,32 @@
-# README
+# Picture Finder
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Pic Finder live][heroku]
 
-Things you may want to cover:
+[heroku]: http://www.guidelines.tips
 
-* Ruby version
+Pic Finder is a full-stack web application similar to google images using Getty Images API. This web-app uses a React framework that connects to a PostgreSQL DB with Ruby on Rails.
 
-* System dependencies
+## Features & Implementation
 
-* Configuration
+### Image Search
 
-* Database creation
+  A user can input any search term into the bar, on the front end, the words will automatically be lowercased and any symbols removed.
 
-* Database initialization
+  It will be sent to the backend using rails to check if the word exists in the dictionary database. If the word exists, it will just be returned. Else we will manipulate the vowels to find a word. If the dictionary can find no matching term, the input term will be used to search.
 
-* How to run the test suite
+```
+ruby
+def self.check_vowels(word)
+  return word if Dictionary.find_by_word(word)
+  new_word = self.replace_vowel(word)
+  return new_word if new_word
+  new_word = self.replace_vowel2(word)
+end
 
-* Services (job queues, cache servers, search engines, etc.)
+```
 
-* Deployment instructions
+## Future Implementations
 
-* ...
+### Spell Checking
+
+  Actually this is already implemented in the backend, we can simply swap the methods in the search and it will work. However in this project we will keep it simple.

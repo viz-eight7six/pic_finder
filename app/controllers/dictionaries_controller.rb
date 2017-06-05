@@ -13,7 +13,7 @@ class DictionariesController < ApplicationController
   end
 
   def search
-    @word = Dictionary.check_word(params[:word])
+    @word = Dictionary.check_vowels(params[:word])
     return @word
   end
 
