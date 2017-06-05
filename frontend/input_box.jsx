@@ -15,19 +15,21 @@ class InputBox extends React.Component {
   }
   handleSubmit() {
     let corrected = this.state.term.replace(/[^a-zA-Z ]/g, "");
-    this.props.extractTerm(corrected);
+    this.props.extractTerm(corrected.toLowerCase());
   }
 
   render() {
     return (
-      <div>
+      <div className="search-bar">
         <input
+          id="textbox"
           type="text"
           value={this.state.term}
           onChange={this.handleInput}
           placeholder="Enter a term">
         </input>
         <input
+          id="button"
           type="button"
           value="Search"
           onClick={this.handleSubmit}>

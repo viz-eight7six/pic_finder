@@ -11,7 +11,7 @@ class DisplayImage extends React.Component {
       images = this.props.images.map((image, idx) => (
         <li key={idx}>
           <h4 id="image-title">{image.title}</h4>
-          <img src={image.display_sizes[0].uri}/>
+          <img className="images" src={image.display_sizes[0].uri}/>
         </li>
       ));
     }

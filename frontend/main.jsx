@@ -64,10 +64,10 @@ class MainPage extends React.Component {
   render() {
     let res;
     if(this.state.checked_term){
-      res = <h4>Displaying Results for {this.state.checked_term}</h4>;
+      res = <h3>Displaying Results for {this.state.checked_term}</h3>;
     }
     else if (this.state.term){
-      res = <h4>Displaying Results for {this.state.term}</h4>;
+      res = <h3>Displaying Results for {this.state.term}</h3>;
     }
     return (
       <div>
