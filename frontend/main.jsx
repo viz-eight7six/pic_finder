@@ -40,7 +40,7 @@ class MainPage extends React.Component {
              }})
      .done((response) => {
         let data = response.images;
-        this.setState({images: data});
+        this.setState({images: data}, console.log(data));
      })
      .fail(function(data){
          alert(JSON.stringify(data,2));

@@ -27,6 +27,10 @@ end
 
 ## Future Implementations
 
+### Styling
+
+  Basic styling is done, but could use improvements
+
 ### Spell Checking
 
   Actually this is already implemented in the backend with a 2 replace or 1 insertion algorithm, we can simply swap the methods in the search and it will work. However in this project we will keep it simple.

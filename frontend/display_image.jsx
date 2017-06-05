@@ -1,4 +1,7 @@
 import React from 'react';
+import {Link} from 'react-router';
+import Image from './image';
+
 
 class DisplayImage extends React.Component {
   constructor(props) {
@@ -10,8 +13,7 @@ class DisplayImage extends React.Component {
     if(this.props.images){
       images = this.props.images.map((image, idx) => (
         <li key={idx}>
-          <h4 id="image-title">{image.title}</h4>
-          <img className="images" src={image.display_sizes[0].uri}/>
+          <Image image={image}/>
         </li>
       ));
     }
