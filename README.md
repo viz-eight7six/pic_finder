@@ -14,6 +14,8 @@ Pic Finder is a full-stack web application similar to google images using Getty 
 
   It will be sent to the backend using rails to check if the word exists in the dictionary database. If the word exists, it will just be returned. Else we will manipulate the vowels to find a word. If the dictionary can find no matching term, the input term will be used to search.
 
+### Logic
+
   We only check for 2 vowel swaps. Just to avoid recursion hell, since the dictionary is pretty big
 
 ```Ruby
@@ -24,6 +26,10 @@ def self.check_vowels(word)
   new_word = self.replace_vowel2(word)
 end
 ```
+
+### Modal
+
+  Images can be clicked to bring up modal
 
 ## Future Implementations
 
@@ -38,6 +44,10 @@ end
 ### Adding to Dictionary
 
   Allow for users to add words that are not in the dictionary to be there and let them search for those pictures.
+
+### Modal
+
+  Make Modal Retrieve higher resolution images, currently getty api only gives thumbs of images.
 
 ### Downloading Images
 
