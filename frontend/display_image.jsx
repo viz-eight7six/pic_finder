@@ -16,7 +16,7 @@ class DisplayImage extends React.Component {
       ));
     }
     return (
-        <ul class="image-list">
+        <ul className="image-list">
           {images}
         </ul>
     );

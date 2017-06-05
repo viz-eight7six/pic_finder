@@ -12,6 +12,11 @@ class DictionariesController < ApplicationController
   def show
   end
 
+  def search
+    @word = Dictionary.check_word(params[:word])
+    return @word
+  end
+
   # GET /dictionaries/new
   def new
     @dictionary = Dictionary.new

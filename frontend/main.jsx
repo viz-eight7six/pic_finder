@@ -14,13 +14,18 @@ class MainPage extends React.Component {
     this.extractTerm = this.extractTerm.bind(this);
     this.searchPic = this.searchPic.bind(this);
     this.findPictures = this.findPictures.bind(this);
+    this.spellCheck = this.spellCheck.bind(this);
   }
 
   extractTerm(word) {
-    this.setState({term: word}, this.searchPic);
+    this.setState({term: word}, this.spellCheck);
   }
   searchPic() {
-    let pics = this.findPictures(this.state.term);
+    let word = this.state.checked_term;
+    if(!word){
+      word = this.state.term;
+    }
+    let pics = this.findPictures(word);
   }
 
   findPictures(word){
@@ -42,19 +47,26 @@ class MainPage extends React.Component {
      });
   }
 
-  spell_check(word){
-
+  spellCheck(){
+    let term = this.state.term;
+    return (
+      $.ajax({
+        method: 'GET',
+        url: `dictionaries/1/search`,
+        data: {word: term}
+      })
+      .done((response) => {
+        this.setState({checked_term: response.word}, this.searchPic);
+      })
+    );
   }
-
-  edit1(word){
-
-  }
-
-
 
   render() {
     let res;
-    if(this.state.term){
+    if(this.state.checked_term){
+      res = <h4>Displaying Results for {this.state.checked_term}</h4>;
+    }
+    else if (this.state.term){
       res = <h4>Displaying Results for {this.state.term}</h4>;
     }
     return (

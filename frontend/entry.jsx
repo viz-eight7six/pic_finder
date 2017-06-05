@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import MainPage from './main';
 
-window.onload = () => {
-  ReactDOM.render(<MainPage/>, document.getElementById('root'));
-};
+
+document.addEventListener('DOMContentLoaded', () => {
+    const root = document.getElementById('root');
+    ReactDOM.render(<MainPage/>, root);
+});
